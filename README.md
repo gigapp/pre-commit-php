@@ -93,7 +93,7 @@ To install PHP Codesniffer, follow the [recommended steps here](https://github.c
 ## php-md
 
 ```yaml
-- repo: git@github.com/hootsuite/pre-commit-php.git
+- repo: git@github.com:hootsuite/pre-commit-php.git
   sha: 1.0.0
   hooks:
   - id: php-md
