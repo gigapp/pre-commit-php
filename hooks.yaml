@@ -26,3 +26,10 @@
   entry: pre_commit_hooks/php-cs.sh
   language: script
   files: \.php$
+
+- id: php-md
+  name: PHP Mess Detector
+  description: Run PHP Mess Detector against all staged files.
+  entry: pre_commit_hooks/php-md.sh
+  language: script
+  files: \.php$

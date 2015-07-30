@@ -15,6 +15,9 @@ Just add to your `.pre-commit-config.yaml` file with the following
   - id: php-cs
     files: \.(php)$
     args: [--standard=PSR1 -p]
+  - id: php-md
+    files: \.(php)$
+    args: ["cleancode,codesize,controversial,design,naming,unusedcode"]
 ```
 
 # Supported Hooks
@@ -86,3 +89,28 @@ If you have multiple standards or a comma in your `args` property, escape the co
 ```
 
 To install PHP Codesniffer, follow the [recommended steps here](https://github.com/squizlabs/PHP_CodeSniffer#installation).
+
+## php-md
+
+```yaml
+- repo: git@github.com:hootsuite/pre-commit-php.git
+  sha: 1.0.0
+  hooks:
+  - id: php-md
+    files: \.(php)$
+    args: ["cleancode,codesize,controversial,design,naming,unusedcode"]
+```
+
+A bash script that will run the appropriate [PHP Mess Detector](https://github.com/phpmd/phpmd) executable.
+
+It will assume that there is a valid PHP Mess Detector executable at these locations, `vendor/bin/phpmd`, `phpmd` or `php phpmd.phar` (in that exact order).
+
+### args
+
+The `args` property in your hook declaration contains a quoted comma-separated list of [rule sets](http://phpmd.org/documentation/index.html#using-multiple-rule-sets) to use. These can be a combination of the [built-in rule sets](https://github.com/phpmd/phpmd/tree/master/src/main/resources/rulesets) and [custom rule sets](http://phpmd.org/documentation/creating-a-ruleset.html).
+
+For example, if you want to use the [`unusedcode`](https://github.com/phpmd/phpmd/blob/master/src/main/resources/rulesets/unusedcode.xml) built-in rule set, together with a custom rule set file called `.phpmd_ruleset.xml` in the root directory of your repo, then `args` should be:
+
+```yaml
+    args: ["unusedcode,.phpmd_ruleset.xml"]
+```
