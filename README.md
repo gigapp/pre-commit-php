@@ -111,6 +111,6 @@ The `args` property in your hook declaration contains a quoted comma-separated l
 
 For example, if you want to use the [`unusedcode`](https://github.com/phpmd/phpmd/blob/master/src/main/resources/rulesets/unusedcode.xml) built-in rule set, together with a custom rule set file called `.phpmd_ruleset.xml` in the root directory of your repo, then `args` should be:
 
-```
+```yaml
     args: ["unusedcode,.phpmd_ruleset.xml"]
 ```
