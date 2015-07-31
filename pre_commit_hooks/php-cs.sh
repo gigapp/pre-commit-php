@@ -50,7 +50,8 @@ phpcs_command="$phpcs_command $phpcs_args_parsed $phpcs_files_to_check"
 
 echo "Running command $phpcs_command"
 command_result=`eval $phpcs_command`
-if [[ $command_result =~ ERROR ]]
+
+if [ $? -ne 0 ]
 then
     echo -en "${msg_color_magenta}Errors detected by PHP CodeSniffer ... ${msg_color_none} \n"
     echo "$command_result"
