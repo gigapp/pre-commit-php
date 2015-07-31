@@ -73,6 +73,7 @@ Similar pattern as the php-unit hook. A bash script that will run the appropriat
 It will assume that there is a valid PHP Code Sniffer executable at these locations, `vendor/bin/phpcs`, `phpcs` or `php phpcs.phar` (in that exact order).
 
 The `args` property in your hook declaration can be used for pass any valid PHP Code Sniffer arguments. In the example above, it will run PHP Code Sniffer against only the staged php files with the `PSR-1` and progress enabled.
+You can use `--warning-severity=0` or `-n` to ignore warnings, or `--error-severity=0` to ignore errors (see the [docs](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#filtering-errors-and-warnings-based-on-severity)).
 
 If you have multiple standards or a comma in your `args` property, escape the comma character like so
 
